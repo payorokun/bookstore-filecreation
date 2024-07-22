@@ -9,7 +9,7 @@ namespace FileUploader;
 public class FileUploader(ILogger<FileUploader> logger, BlobServiceClient blobServiceClient)
 {
     [Function("FileUploader")]
-    public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequest req)
+    public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req)
     {
         logger.LogInformation("FileUploader received request.");
         // Parse the request
